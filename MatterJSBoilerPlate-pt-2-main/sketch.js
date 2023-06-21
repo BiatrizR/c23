@@ -4,8 +4,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-var angle1=60; var angle2=60;
-
+var angle1=60; var angle2=60, angle3=60;
+//é preciso 3 variavés de ângulos, para cada um girar a partiro do seu prórpio angulo
 
 
 function preload() {
@@ -58,34 +58,38 @@ function draw() {
 	rectMode(CENTER);
 	background(0);
 	Engine.update(engine)
-    fill("red")
-    rect(plane.position.x,plane.position.y,1200,20);
-    rect(block1.position.x,block1.position.y,150,20);
+	fill("red")
+	rect(plane.position.x,plane.position.y,1200,20);
+	rect(block1.position.x,block1.position.y,150,20);
 	ellipse(particle1.position.x,particle1.position.y,50);
 	ellipse(particle2.position.x,particle2.position.y,50);
 	ellipse(particle3.position.x,particle3.position.y,50);
 	ellipse(particle4.position.x,particle4.position.y,50);
-    Matter.Body.rotate(rotator1,angle1); 
+ 	Matter.Body.rotate(rotator1,angle1); 
 	push();
 	translate(rotator1.position.x,rotator1.position.y);
 	rotate(angle1);
-    rect(40,40,150,20);
-    pop();
-    angle1 +=5;
+        rect(0,0,150,20);
+        pop();
+    	angle1 +=5;
+
 	Matter.Body.rotate(rotator1,angle1); 
 	push();
 	translate(rotator1.position.x,rotator1.position.y);
-	rotate(angle1);
-	 rect(10,10,150,20);
-    pop();
-    angle1 -=100;
+	rotate(angle2);
+	//x e y tem que ser 0 pois ele rodara em torno do próprio eixo, já modificado na função translate
+	rect(0,0,150,20);
+	pop();
+	angle2-= 5
+
 	Matter.Body.rotate(rotator1,angle1); 
 	push();
 	translate(rotator1.position.x,rotator1.position.y);
-	rotate(angle1); 
-	rect(100,100,150,20);
-    pop();
-    angle1 +=2;
+	//função rotate terá sua variável de agulo
+	rotate(angle3); 
+	rect(0,0,150,20);
+	pop();
+	angle3-=0.5;
 
 
 
